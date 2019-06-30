@@ -37,6 +37,13 @@ class Feed extends Component {
         feed: this.state.feed.map(post => post._id === likedPost._id ? likedPost : post)
       })
     })
+
+    socket.on('comment', comment => {
+      this.setState({
+        feed: this.state.feed.map(post => post._id === comment._id ? comment : post)
+      })
+    })
+
   }
 
   handleLike = id => {
@@ -78,6 +85,7 @@ class Feed extends Component {
                 <span>{post.hashtags}</span>
               </p>
               <Comments 
+                idPost={post._id}
                 comments={post.comments}
               />
             </footer>

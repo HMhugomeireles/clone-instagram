@@ -1,6 +1,8 @@
 import React from 'react';
 
-import './header.css';
+//import './header.css';
+
+import NewComment from './NewComment';
 
 export default function Comments(props) {
   return (
@@ -11,6 +13,9 @@ export default function Comments(props) {
           <p>{comment.body}</p>
         </div>
       ))}
+      <NewComment 
+        idComment={props.idPost}
+      />
     </>
   );
 }

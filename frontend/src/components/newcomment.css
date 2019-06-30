@@ -1,0 +1,27 @@
+#new-comment form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#new-comment input {
+  padding: 5px;
+  width: 50%;
+  margin-top: 5px;
+}
+
+#new-comment textarea {
+  padding: 5px;
+  width: 50%;
+  margin-top: 5px;
+  min-height: 80px;
+}
+
+#new-comment button {
+  padding: 15px;
+  width: 53%;
+  margin-top: 5px;
+  background: #0352c9;
+  color: #fff;
+  border: 0;
+}
