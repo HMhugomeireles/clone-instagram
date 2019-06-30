@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const Config = require('./config/config');
 const path = require('path');
 const cors = require('cors');
@@ -20,6 +21,7 @@ app.use((req, res, next) => {
 });
 app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
 app.use(cors());
+app.use(bodyParser.json());
 app.use(require('./routes'));
 
 

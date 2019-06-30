@@ -9,6 +9,8 @@ import like from '../assets/like.svg';
 import comment from '../assets/comment.svg';
 import send from '../assets/send.svg';
 
+import Comments from '../components/Comments';
+
 class Feed extends Component {
   state = {
     feed: []
@@ -75,6 +77,9 @@ class Feed extends Component {
                 {post.description}
                 <span>{post.hashtags}</span>
               </p>
+              <Comments 
+                comments={post.comments}
+              />
             </footer>
           </article>
         )) }
