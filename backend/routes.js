@@ -5,14 +5,14 @@ const PostController = require('./controllers/PostController');
 const LikeController = require('./controllers/LikeController');
 const CommentController = require('./controllers/CommentController');
 
-const routes = new express.Router();
+const PostsRoutes = new express.Router();
 const upload = multer(uploadConfig);
 
-routes.get('/posts', PostController.index);
-routes.post('/posts', upload.single('image'), PostController.store);
+PostsRoutes.get('/posts', PostController.index);
+PostsRoutes.post('/posts', upload.single('image'), PostController.store);
 
-routes.post('/posts/:id/like', LikeController.store);
+PostsRoutes.post('/posts/:id/like', LikeController.store);
 
-routes.post('/posts/:id/comment', CommentController.store);
+PostsRoutes.post('/posts/:id/comment', CommentController.store);
 
-module.exports = routes;
+module.exports = PostsRoutes;

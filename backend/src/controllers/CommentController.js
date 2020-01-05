@@ -17,8 +17,6 @@ module.exports = {
 
     await post.save();
 
-    console.log(post);
-
     req.io.emit('comment', post);
 
     return res.json(post);
