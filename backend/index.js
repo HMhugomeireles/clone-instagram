@@ -19,7 +19,8 @@ app.use((req, res, next) => {
   req.io = io;
   next();
 });
-app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
+
+app.use('/files', express.static(path.resolve(__dirname, 'uploads', 'resized')));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(require('./routes'));
