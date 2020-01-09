@@ -8,11 +8,14 @@ const cors = require('cors');
 
 const app = express();
 
+const SERVER_PORT = process.env.PORT || 3333;
+
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 mongoose.connect(Config.CONNECTING_MONGODB, {
-  useNewUrlParser: true 
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 app.use((req, res, next) => {
@@ -26,4 +29,6 @@ app.use(bodyParser.json());
 app.use(require('./routes'));
 
 
-server.listen(3333);
+server.listen(SERVER_PORT, () => {
+  console.log(`Server is runing in port:${SERVER_PORT}`)
+});
